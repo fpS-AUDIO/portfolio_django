@@ -1,0 +1,95 @@
+/*////////////////////////////////////////
+/// ANIMATION WRITING TEXT ON KEYBOARD ///
+////////////////////////////////////////*/
+
+:root {}
+
+.anime-wrapper {
+    /* flex per avere border-right visibile in .animated-title */
+    display: flex;
+    flex-direction: column;
+}
+
+.animated-title {
+    /* 1ch = 1 simbolo  quindi inserire il numero di simboli della parola da animare */
+    width: 16ch;
+    /* monospace ha la larghezza delle lettere sempre uguale */
+    font-family: monospace;
+    /* nowrap per averlo sempre sulla stessa riga */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid var(--clr-flashing-border);
+    /* step-start al posto di "ease" per avere scatto */
+    /* steps al posto di "ease" per il numero di frame, quindi inserire come width in ch */
+    animation: flashing-border 900ms step-start .1s 5 both,
+        printed-text 5s steps(16) both;
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.delay-animated-title {
+    animation: delay-flashing-border 900ms step-start 5.5s infinite both,
+        delay-printed-text 6s steps(26) 5.5s both;
+}
+
+
+/* animations */
+
+@keyframes flashing-border {
+    0% {
+        /* border-color: var(--clr-flashing-border); */
+        border-color: transparent;
+    }
+
+    50% {
+        /* border-color: transparent; */
+        border-color: var(--clr-flashing-border);
+    }
+
+    100% {
+        /* border-color: var(--clr-flashing-border); */
+        border-color: transparent;
+    }
+}
+
+@keyframes printed-text {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        /* inserire stesso numero di width del testo da animare in ch */
+        width: 16ch;
+    }
+}
+
+
+
+
+@keyframes delay-flashing-border {
+    0% {
+        /* border-color: var(--clr-flashing-border); */
+        border-color: transparent;
+    }
+
+    50% {
+        /* border-color: transparent; */
+        border-color: var(--clr-flashing-border);
+    }
+
+    100% {
+        /* border-color: var(--clr-flashing-border); */
+        border-color: transparent;
+    }
+}
+
+@keyframes delay-printed-text {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        /* inserire stesso numero di width del testo da animare in ch */
+        width: 26ch;
+    }
+}

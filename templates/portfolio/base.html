@@ -11,7 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" >
 
         <!-- local relative link .css -->
-         <link rel="stylesheet" href="{% static 'css/styles_v2.css' %}">       
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">   
+        <link rel="stylesheet" href="{% static 'css/animations.css' %}">   
+
 
         <!-- CDN Google-Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,8 +41,11 @@
                     <div class="neon-line green"></div>
                     <div class="jumbotron">
                         <p>my name is</p>
-                        <h1>Alexander Ivanov</h1>
-                        <h2>a Full-Stack Web Developer</h2>
+                        <!-- Animation "Writing Text" -->
+                        <div class="anime-wrapper">
+                            <h1 class="animated-title">Alexander Ivanov</h1>
+                            <h2 class="animated-title delay-animated-title">a Full-Stack Web Developer</h2>
+                        </div>
                     </div>
                 </div>
 
