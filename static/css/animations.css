@@ -2,8 +2,6 @@
 /// ANIMATION WRITING TEXT ON KEYBOARD ///
 ////////////////////////////////////////*/
 
-:root {}
-
 .anime-wrapper {
     /* flex per avere border-right visibile in .animated-title */
     display: flex;
@@ -18,18 +16,23 @@
     /* nowrap per averlo sempre sulla stessa riga */
     white-space: nowrap;
     overflow: hidden;
+}
+
+/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+.anime-no-delay {
     border-right: 4px solid var(--clr-flashing-border);
     /* step-start al posto di "ease" per avere scatto */
     /* steps al posto di "ease" per il numero di frame, quindi inserire come width in ch */
-    animation: flashing-border 900ms step-start .1s 5 both,
-        printed-text 5s steps(16) both;
-
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: flashing-border 900ms step-start 6 both,
+        printed-text-16ch 4s steps(16) both;
 }
 
-.delay-animated-title {
-    animation: delay-flashing-border 900ms step-start 5.5s infinite both,
-        delay-printed-text 6s steps(26) 5.5s both;
+.anime-delay {
+    /* Set the initial border-right width to 0 to hide it */
+    /* border-right: 0px solid var(--clr-flashing-border); */
+    animation: flashing-border 900ms step-start 5s infinite backwards,
+        printed-text-26ch 5s steps(26) 5s both;
 }
 
 
@@ -37,22 +40,20 @@
 
 @keyframes flashing-border {
     0% {
-        /* border-color: var(--clr-flashing-border); */
         border-color: transparent;
     }
 
     50% {
-        /* border-color: transparent; */
         border-color: var(--clr-flashing-border);
+        border-width: 4px;
     }
 
     100% {
-        /* border-color: var(--clr-flashing-border); */
         border-color: transparent;
     }
 }
 
-@keyframes printed-text {
+@keyframes printed-text-16ch {
     0% {
         width: 0%;
     }
@@ -63,27 +64,7 @@
     }
 }
 
-
-
-
-@keyframes delay-flashing-border {
-    0% {
-        /* border-color: var(--clr-flashing-border); */
-        border-color: transparent;
-    }
-
-    50% {
-        /* border-color: transparent; */
-        border-color: var(--clr-flashing-border);
-    }
-
-    100% {
-        /* border-color: var(--clr-flashing-border); */
-        border-color: transparent;
-    }
-}
-
-@keyframes delay-printed-text {
+@keyframes printed-text-26ch {
     0% {
         width: 0%;
     }

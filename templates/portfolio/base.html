@@ -22,7 +22,7 @@
 
     </head>
 
-    <body class="adaptive-font-size">
+    <body>
 
         <!-- general <header> wrapper -->
         <header id="header" class="header">
@@ -43,8 +43,8 @@
                         <p>my name is</p>
                         <!-- Animation "Writing Text" -->
                         <div class="anime-wrapper">
-                            <h1 class="animated-title">Alexander Ivanov</h1>
-                            <h2 class="animated-title delay-animated-title">a Full-Stack Web Developer</h2>
+                            <h1 class="animated-title anime-no-delay">Alexander Ivanov</h1>
+                            <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
 
                 <!-- links <ul> -->
                 <ul class="menu">
-                    <li><a href="{% url 'portfolio:homepage' %}">Start</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="#header">Start</a></li>
+                    <li><a href="#div-about">About</a></li>
                     <li><a href="#">Skills</a></li>
                 </ul> 
 
@@ -115,6 +115,11 @@
 
         <script src="{% static 'js/main_script.js' %}"></script>
         <script>
+
+            ////////////////////////
+            //// Theme Switcher ////
+            ////////////////////////
+
             let themeSwitcher = document.getElementById("themeSwitch");
             let logoImage = document.getElementById("logo-img");
 
@@ -126,6 +131,18 @@
                 logoImage.src = "{% static 'img/logo-ivanov-white.png' %}";
             }
         };
+
+
+            //////////////////////////////////////
+            //// Header Animations Bug Fixing ////
+            //////////////////////////////////////
+
+            // Add a delay before applying the animation on the delayed element
+            // ELEMENT: <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
+            setTimeout(function() {
+                document.querySelector('.anime-delay').style.borderRight = '4px solid var(--clr-flashing-border)';
+            }, 5000); // Adjust the delay time as needed
+            
         </script>
     </body>
 
