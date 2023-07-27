@@ -18,6 +18,8 @@
 - @media    big screens responsive
 - @media    when hover is supported
 - @media    when hover is NOT supported (using :active)
+- body
+    -- about
 
 ////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////*/
@@ -91,9 +93,13 @@
     --clr-theme-switcher-shadow: rgb(0 120 188 / 40%);
 
     /* neon */
-    --clr-neon-1: #29cf21;
+
+    /*     --clr-neon-1: #29cf21;
     --clr-neon-2: #00a4d9;
-    --clr-neon-3: #2751c7;
+    --clr-neon-3: #2751c7; */
+    --clr-neon-1: #00ff1c;
+    --clr-neon-2: #21e0ff;
+    --clr-neon-3: #eb00ff;
 
     /* navbar */
     --clr-navbar-bg-1: #e54e18;
@@ -523,34 +529,10 @@ textarea {
 }
 
 
+/*/////////////////////////////////////////////////////////
+/// ALL @MEDIA OF HEADER AND NAV FOR RESPONSIVE SCREENS ///
+/////////////////////////////////////////////////////////*/
 
-
-
-
-/*/////////////////
-/// MAIN <BODY> ///
-/////////////////*/
-
-.div-container-body {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    padding: 0 8%;
-    margin-top: 4rem;
-}
-
-.div-container-body .div-sub-container {
-    margin-top: 8rem;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.div-container-body .div-sub-container p {
-    font-size: calc(16px + (24 + 24 * 0.7) * ((100 - 320px) / 1280));
-}
 
 
 
@@ -696,4 +678,68 @@ textarea {
         background-color: var(--clr-media-not-hover-menu-li-active);
         /* transition: all .1s ease; */
     }
+}
+
+
+
+
+
+/*//////////////////////////////////*/
+/*////////////// BODY //////////////*/
+/*//////////////////////////////////*/
+
+/* Main Body */
+
+.div-container-body {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 0 8%;
+    margin-top: 4rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.div-container-body .div-sub-container {
+    margin-top: 4rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.div-container-body .div-sub-container p {
+    font-size: calc(16px + (24 + 24 * 0.7) * ((100 - 320px) / 1280));
+}
+
+
+
+
+
+/* About */
+
+.div-sub-container .about-image-wrap {
+    /* border for debugging */
+    border: 2px solid grey;
+    object-fit: cover;
+
+}
+
+.div-sub-container .about-image-wrap:hover {
+    /* transform: scale(120%); */
+    filter: grayscale(100%);
+    transition: all 0.4s ease;
+    overflow: hidden !important;
+}
+
+.div-sub-container .about-image-wrap .about-image {
+    transition: all 0.4s ease;
+}
+
+.div-sub-container .about-image-wrap .about-image:hover {
+    /* FIX ME!!!!! */
+    transform: scale(125%),
+        translateY(20px);
+    transition: all 0.4s ease;
 }
