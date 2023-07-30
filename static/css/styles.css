@@ -50,6 +50,7 @@
     --clr-card-border: #5411d1;
     --clr-card-border-hover: #0adff2;
     --clr-card-bg-clr: #181818;
+    --clr-hr: #5a0fd4;
 
     /* theme switcher */
     --clr-theme-switcher-bg: #F5DEB3;
@@ -91,7 +92,8 @@
     --clr-flashing-border: #051121;
     --clr-card-border: #5411d1;
     --clr-card-border-hover: #11c1d1;
-    --clr-card-bg-clr: #f5f5f5;
+    --clr-card-bg-clr: #e7e7e7;
+    --clr-hr: #5a0fd4;
 
     /* theme switcher */
     --clr-theme-switcher-bg: #051121;
@@ -700,25 +702,26 @@ textarea {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    padding: 0 4%;
+    padding: 0 8%;
     margin: 0 auto;
     max-width: 100%;
     overflow: hidden;
-
-    /* border for debugging */
-    border: 1px solid orchid;
 }
 
 .div-container-body .div-sub-container {
+    z-index: 10;
     margin: 4rem 0;
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
-    gap: 2rem;
-
-    /* border for debugging */
-    border: 1px solid aqua;
+    justify-content: center;
 }
 
+@media (min-width: 48rem) {
+    .div-container-body .div-sub-container {
+        display: unset;
+    }
+}
 
 
 
@@ -727,27 +730,80 @@ textarea {
 
 .div-container-body .div-sub-container .about-image-wrap {
     object-fit: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     line-height: 0;
+    max-width: 16rem;
+    width: 100%;
+    min-width: 8rem;
 
     display: flex;
     flex-flow: row wrap;
+    transition: all .3s ease;
+}
 
-    /* border jus for debugging */
-    border: 1px solid red;
+@media (min-width: 48rem) {
+    .div-container-body .div-sub-container .about-image-wrap {
+        float: right;
+        margin-right: 8%;
+        transition: all .3s ease;
+    }
 }
 
 .div-container-body .div-sub-container .about-image-wrap .about-image {
+    z-index: 8;
     /* Ensure the image takes the full width  and height of the card */
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+}
+
+.div-container-body .div-sub-container .about-image-wrap .decor-before {
+    z-index: 7;
+    position: absolute;
+    max-width: 42rem;
+    top: 71rem;
+    right: -2rem;
+    transform: rotate(86deg);
+}
+
+.div-container-body .div-sub-container .about-image-wrap .decor-after {
+    z-index: 9;
+    position: absolute;
+    max-width: 23rem;
+    top: 93rem;
+    right: 12rem;
 }
 
 .div-container-body .div-sub-container .text-wrap {
-    /* border jus for debugging */
-    border: 1px solid yellowgreen;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
 }
+
+.div-container-body .div-sub-container .text-wrap h2 {
+    align-self: flex-end;
+    position: relative;
+    right: 5rem;
+}
+
+.div-container-body .div-sub-container .text-wrap hr {
+    color: var(--clr-hr);
+    width: 86%;
+}
+
+.div-container-body .div-sub-container .text-wrap input[type="button"] {
+    align-self: flex-start;
+    position: relative;
+    left: 5rem;
+}
+
+
+
 
 
 /* Cards */
@@ -758,7 +814,6 @@ textarea {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-
     overflow: hidden;
 }
 
