@@ -90,12 +90,10 @@
         <div class="div-sub-container" id="div-about">
 
             <div class="about-image-wrap">
-                <img class="decor-after" src="{% static 'img/about-sub-element-after.svg' %}"
-                    alt="just a blue stain to decorate the main photo">
-                <img class="decor-before" src="{% static 'img/about-sub-element-before.svg' %}"
-                    alt="another blue stain to decorate the main photo">
                 <img class="about-image" src="{% static 'img/alexander_foto.png' %}"
                     alt="Alexander's foto in white shirt with a cool haircut">
+                <img class="decor-after" src="{% static 'img/about-sub-element-after.svg' %}"
+                    alt="just a blue stain to decorate the main photo">
             </div>
 
             <div class="text-wrap">
@@ -172,11 +170,11 @@
 
         themeSwitcher.onclick = function () {
             document.body.classList.toggle("light-theme");
-            if (document.body.classList.contains("light-theme")) {
-                logoImage.src = "{% static 'img/logo-ivanov-black.png' %}";
-            } else {
-                logoImage.src = "{% static 'img/logo-ivanov-white.png' %}";
-            }
+            /*             if (document.body.classList.contains("light-theme")) {
+                            logoImage.src = "{% static 'img/logo-ivanov-black.png' %}";
+                        } else {
+                            logoImage.src = "{% static 'img/logo-ivanov-white.png' %}";
+                        } */
         };
 
 

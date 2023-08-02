@@ -63,7 +63,7 @@
     --clr-neon-3: #2751c7;
 
     /* navbar */
-    --clr-navbar-bg-1: #0e141c;
+    --clr-navbar-bg-1: #181818;
     --clr-navbar-bg-2: #121924;
     --clr-navbar-bg-3: #0e141c;
     --clr-navbar-box-shadow: rgb(0 0 0 / 30%);
@@ -110,7 +110,10 @@
     --clr-neon-3: #eb00ff;
 
     /* navbar */
-    --clr-navbar-bg-1: #e54e18;
+    --clr-navbar-bg-1: #181818;
+    --clr-navbar-bg-2: #121924;
+    --clr-navbar-bg-3: #0e141c;
+    /*     --clr-navbar-bg-1: #e54e18;
     --clr-navbar-bg-2: #dd8e43;
     --clr-navbar-bg-3: #e54e18;
     --clr-navbar-box-shadow: rgb(251, 118, 0, 30%);
@@ -121,7 +124,7 @@
     --clr-nav-icon: #051121;
     --clr-media-hover-menu-li-hover: rgba(255, 183, 3, 0.4);
 
-    --clr-media-not-hover-menu-li-active: rgba(255, 183, 3, 0.7);
+    --clr-media-not-hover-menu-li-active: rgba(255, 183, 3, 0.7); */
 }
 
 
@@ -139,7 +142,6 @@
     /* Removes blue background when clicking on a link or icon on phone */
     -webkit-tap-highlight-color: transparent;
 
-    /* FIX ME   ->  need to add a smomth transition for theme changer */
 }
 
 html {
@@ -356,7 +358,7 @@ textarea {
     /* !!!!!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!  */
     /* background-image: linear-gradient(to bottom, , , , , , , , , , , , ); */
     background-color: var(--clr-navbar-bg-1);
-    background-image: linear-gradient(180deg, var(--clr-header-bg-1) 10%, var(--clr-navbar-bg-2) 50%, var(--clr-navbar-bg-3) 100%);
+    background-image: linear-gradient(180deg, var(--clr-navbar-bg-1) 10%, var(--clr-navbar-bg-2) 50%, var(--clr-navbar-bg-3) 100%);
 
     box-shadow: 0px 0px 6px 4px var(--clr-navbar-box-shadow);
 
@@ -710,7 +712,7 @@ textarea {
 
 .div-container-body .div-sub-container {
     z-index: 10;
-    margin: 4rem 0;
+    margin: 2rem 0;
     align-items: center;
     display: flex;
     flex-flow: row wrap;
@@ -720,6 +722,9 @@ textarea {
 @media (min-width: 48rem) {
     .div-container-body .div-sub-container {
         display: unset;
+        margin: 4rem 0;
+
+        border: 1px solid blue;
     }
 }
 
@@ -729,16 +734,19 @@ textarea {
 /* About */
 
 .div-container-body .div-sub-container .about-image-wrap {
-    object-fit: cover;
+    /* object-fit: cover; */
     /* overflow: hidden; */
     line-height: 0;
-    max-width: 16rem;
-    width: 100%;
-    min-width: 8rem;
+    width: 16rem;
+    /* width: 100%; */
+    /* min-width: 8rem; */
 
     display: flex;
     flex-flow: row wrap;
     transition: all .3s ease;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 @media (min-width: 48rem) {
@@ -746,6 +754,10 @@ textarea {
         float: right;
         margin-right: 8%;
         transition: all .3s ease;
+
+        position: relative;
+        top: 0;
+        left: 0;
     }
 }
 
@@ -753,26 +765,20 @@ textarea {
     z-index: 8;
     /* Ensure the image takes the full width  and height of the card */
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     object-fit: cover;
     position: relative;
-}
-
-.div-container-body .div-sub-container .about-image-wrap .decor-before {
-    z-index: 7;
-    position: absolute;
-    max-width: 42rem;
-    top: 71rem;
-    right: -2rem;
-    transform: rotate(86deg);
+    top: 0px;
+    left: 0px;
 }
 
 .div-container-body .div-sub-container .about-image-wrap .decor-after {
     z-index: 9;
     position: absolute;
     max-width: 23rem;
-    top: 93rem;
-    right: 12rem;
+    top: 20rem;
+    right: -6rem;
+    transform: rotate(-12deg);
 }
 
 .div-container-body .div-sub-container .text-wrap {
@@ -782,7 +788,9 @@ textarea {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    gap: 1.5rem;
+
+    border: 1px solid red;
 }
 
 .div-container-body .div-sub-container .text-wrap h2 {
@@ -800,6 +808,13 @@ textarea {
     align-self: flex-start;
     position: relative;
     left: 5rem;
+    width: 5rem;
+    width: 6rem;
+    height: 2rem;
+    color: var(--clr-menu-links);
+    background-color: var(--clr-neon-3);
+    border: 2px solid var(--clr-hr);
+    border-radius: 8px;
 }
 
 
