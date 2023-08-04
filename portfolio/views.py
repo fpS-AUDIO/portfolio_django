@@ -16,7 +16,8 @@ def index(request):
 
 def homepage(request):
     context_dict = {}
-    return render(request, "portfolio/index.html", context=context_dict)
+    return render(request, "portfolio/main_body.html", context=context_dict)
 
-def my_past(request):
+""" def my_past(request):
     return render(request, "portfolio/my_past.html", {} )
+ """

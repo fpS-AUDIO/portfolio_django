@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Alex Ivanov Portfolio</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- local relative link .css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+
+    <!-- CDN Google-Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- INJECT HEADER HERE -->
+
+    {% block header %}
+    {% endblock %}
+
+
+    <!-- navbar -->
+    <div class="navbar">
+
+        <!-- logo wrapper -->
+        <div class="logo-box">
+            <a href="#header">
+                <img id="logo-img" class="logo" src="{% static 'img/logo-ivanov-white.png' %}"
+                    alt="white Alexander's logo">
+            </a>
+        </div>
+
+        <!-- links wrapper -->
+        <div class="menu-wrap">
+
+            <!-- hidden -->
+            <input type="checkbox" class="menu-btn" id="id-menu-btn" checked>
+
+            <!-- links <ul> -->
+            <ul class="menu">
+                <li><a href="#header">Start</a></li>
+                <li><a href="#div-about">About</a></li>
+                <li><a href="#">Skills</a></li>
+            </ul>
+
+            <!-- menu icon -->
+            <label class="menu-icon" for="id-menu-btn">
+                <!-- the true icon -->
+                <span class="nav-icon"></span>
+            </label>
+        </div>
+
+    </div>
+
+    {% block main_body %}
+    {% endblock %}
+
+    <footer>
+        <div class="footer">
+            <img class="footer-img" src="{% static 'img/footer-waves.svg' %}"
+                alt="Decoration blue waves for header content">
+            <div class="footer-content">
+                <a href="#header">
+                    <img id="logo-img" class="logo" src="{% static 'img/logo-ivanov-white.png' %}"
+                        alt="white Alexander's logo">
+                </a>
+                <hr>
+                <ul class="footer-links">
+                    <li><a href="#header">Start</a></li>
+                    <li><a href="#div-about">About</a></li>
+                    <li><a href="#">Skills</a></li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static 'js/main_script.js' %}"></script>
+    <script>
+
+        ////////////////////////
+        //// Theme Switcher ////
+        ////////////////////////
+
+        let themeSwitcher = document.getElementById("themeSwitch");
+        let logoImage = document.getElementById("logo-img");
+
+        themeSwitcher.onclick = function () {
+            document.body.classList.toggle("light-theme");
+            /*             if (document.body.classList.contains("light-theme")) {
+                            logoImage.src = "{% static 'img/logo-ivanov-black.png' %}";
+                        } else {
+                            logoImage.src = "{% static 'img/logo-ivanov-white.png' %}";
+                        } */
+        };
+
+
+        //////////////////////////////////////
+        //// Header Animations Bug Fixing ////
+        //////////////////////////////////////
+
+        // Add a delay before applying the animation on the delayed element
+        // ELEMENT: <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
+        setTimeout(function () {
+            document.querySelector('.anime-delay').style.borderRight = '4px solid var(--clr-flashing-border)';
+        }, 5000); // Adjust the delay time as needed
+
+    </script>
+</body>
+
+</html>

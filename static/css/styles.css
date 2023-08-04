@@ -20,6 +20,7 @@
 - @media    when hover is NOT supported (using :active)
 - body
     -- about
+- footer
 
 ////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////*/
@@ -39,9 +40,10 @@
     --clr-body-bg-1: #181818;
     --clr-body-bg-2: #080620;
 
-    /* <header> background colors */
+    /* <header> colors */
     --clr-header-bg-1: #051121;
     --clr-header-bg-2: #233b46;
+    --clr-header-title: var(--clr-menu-links);
 
     /* main colors */
     --clr-primary-text: #e9ecef;
@@ -76,6 +78,10 @@
     --clr-media-hover-menu-li-hover: rgba(37, 71, 87, 0.4);
     /* --clr-media-hover-menu-li-hover-blur: rgba(0, 173, 253, 1); */
     --clr-media-not-hover-menu-li-active: rgba(37, 71, 87, 0.7);
+
+    /* footer */
+    --clr-bg-footer: #181d51;
+
 }
 
 .light-theme {
@@ -83,9 +89,10 @@
     --clr-body-bg-1: #fcfcfc;
     --clr-body-bg-2: #e6e6e6;
 
-    /* <header> background colors */
+    /* <header> colors */
     --clr-header-bg-1: #FBAB7E;
     --clr-header-bg-2: #F7CE68;
+    --clr-header-title: #152a63;
 
     /* main colors */
     --clr-primary-text: #181818;
@@ -115,18 +122,6 @@
     --clr-navbar-bg-1: #181818;
     --clr-navbar-bg-2: #121924;
     --clr-navbar-bg-3: #0e141c;
-    /*     --clr-navbar-bg-1: #e54e18;
-    --clr-navbar-bg-2: #dd8e43;
-    --clr-navbar-bg-3: #e54e18;
-    --clr-navbar-box-shadow: rgb(251, 118, 0, 30%);
-    --clr-menu-links: #152a63;
-    --clr-ul-menu-bg: rgba(251, 133, 0, 0.8);
-    --clr-ul-menu-shadow: rgba(251, 118, 0, 30%);
-    --clr-ul-menu-Rborder: #ffb703;
-    --clr-nav-icon: #051121;
-    --clr-media-hover-menu-li-hover: rgba(255, 183, 3, 0.4);
-
-    --clr-media-not-hover-menu-li-active: rgba(255, 183, 3, 0.7); */
 }
 
 
@@ -207,8 +202,7 @@ textarea {
     margin-left: 15%;
 
     /* color: wheat; */
-    color: var(--clr-menu-links);
-
+    color: var(--clr-header-title);
 }
 
 .header .header-box .main-elements {
@@ -387,14 +381,15 @@ textarea {
     transition: margin-left 0.6s ease;
 }
 
-.navbar .logo-box a {
+/* .navbar .logo-box a  */
+.logo-box a {
     text-decoration: none;
     display: block;
 }
 
 
-
-.navbar .logo-box .logo {
+/* .navbar .logo-box .logo */
+.logo {
     min-width: 7rem;
     width: 100%;
     max-width: 10rem;
@@ -932,4 +927,62 @@ textarea {
     transform: scale(1.25) translateY(120px);
     filter: grayscale(60%) blur(3px);
     /* Apply the grayscale effect on hover */
+}
+
+
+
+
+
+
+/*//////////////////////////////////*/
+/*///////////// FOOTER /////////////*/
+/*//////////////////////////////////*/
+footer {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    overflow: hidden;
+    line-height: 0;
+}
+
+
+/* FIX ME */
+
+.footer hr {
+    background: rgb(211, 221, 223);
+    background: linear-gradient(90deg, rgba(211, 221, 223, 0.2) 0%, rgba(131, 131, 164, 1) 49%, rgba(211, 221, 223, 0.2) 100%);
+    /* color: #00ff1c; */
+}
+
+.footer .footer-img {
+    width: 100vw;
+    object-fit: cover;
+}
+
+.footer .footer-content {
+    width: 100vw;
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--clr-bg-footer);
+    line-height: initial;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.footer .footer-content hr {
+    width: 60%;
+}
+
+.footer .footer-content .footer-links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
