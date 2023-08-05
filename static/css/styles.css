@@ -81,6 +81,8 @@
 
     /* footer */
     --clr-bg-footer: #181d51;
+    --clr-footer-hr-middle: rgb(131, 131, 164);
+    --clr-footer-hr-left-right: rgba(211, 221, 223, 0.01);
 
 }
 
@@ -938,33 +940,50 @@ textarea {
 /*///////////// FOOTER /////////////*/
 /*//////////////////////////////////*/
 footer {
+    width: 100vw;
+    height: auto;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .footer {
     overflow: hidden;
     line-height: 0;
+    height: auto;
 }
 
-
-/* FIX ME */
-
 .footer hr {
+    border: 0;
+    height: 1px;
     background: rgb(211, 221, 223);
-    background: linear-gradient(90deg, rgba(211, 221, 223, 0.2) 0%, rgba(131, 131, 164, 1) 49%, rgba(211, 221, 223, 0.2) 100%);
+    background: linear-gradient(90deg, var(--clr-footer-hr-left-right) 0%, var(--clr-footer-hr-middle) 49%, var(--clr-footer-hr-left-right) 100%);
     /* color: #00ff1c; */
 }
 
 .footer .footer-img {
-    width: 100vw;
+    /*     width: 100vw;
     object-fit: cover;
+
+    position: relative;
+    bottom: 12rem; */
+
+
+    /* FROM HERE */
+    width: 100vw;
+    height: 20rem;
+    /* Set the desired height to hide the top part */
+    background-image: url("{% static 'img/footer-waves.svg' %}");
+    background-size: cover;
+    background-position: bottom center;
+    /* Set the position of the visible part (bottom center in this case) */
 }
 
 .footer .footer-content {
     width: 100vw;
-    height: 200px;
+    height: auto;
+    padding-bottom: 5rem;
     overflow: hidden;
     background-color: var(--clr-bg-footer);
     line-height: initial;
@@ -973,7 +992,10 @@ footer {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
+
+    position: absolute;
+    bottom: 0;
 }
 
 .footer .footer-content hr {
@@ -985,4 +1007,16 @@ footer {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+    list-style: none;
+
+    overflow: hidden;
+
+}
+
+.footer .footer-content .footer-links a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--clr-menu-links);
 }
