@@ -20,6 +20,8 @@
 - @media    when hover is NOT supported (using :active)
 - body
     -- about
+    -- definition of coder
+    -- cards
 - footer
 
 ////////////////////////////////////////////////////////////////////////
@@ -34,6 +36,10 @@
 ////////////////*/
 
 :root {
+
+    --size-font-p: calc(1rem + 0.3vw);
+    --size-font-h2: calc(1.875rem + 0.3vw);
+
     /* this is the default dark theme: */
 
     /* <body> background colors */
@@ -80,7 +86,7 @@
     --clr-media-not-hover-menu-li-active: rgba(37, 71, 87, 0.7);
 
     /* footer */
-    --clr-bg-footer: #181d51;
+    --clr-bg-footer: #12174f;
     --clr-footer-hr-middle: rgb(131, 131, 164);
     --clr-footer-hr-left-right: rgba(211, 221, 223, 0.01);
 
@@ -153,6 +159,14 @@ body {
     background-color: var(--clr-body-bg-1);
     background-image: linear-gradient(180deg, var(--clr-body-bg-1) 30%, var(--clr-body-bg-2) 100%);
     color: var(--clr-primary-text);
+}
+
+p {
+    font-size: var(--size-font-p);
+}
+
+h2 {
+    font-size: var(--size-font-h2);
 }
 
 button,
@@ -353,8 +367,6 @@ textarea {
     padding: 0;
     z-index: 20;
 
-    /* !!!!!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!  */
-    /* background-image: linear-gradient(to bottom, , , , , , , , , , , , ); */
     background-color: var(--clr-navbar-bg-1);
     background-image: linear-gradient(180deg, var(--clr-navbar-bg-1) 10%, var(--clr-navbar-bg-2) 50%, var(--clr-navbar-bg-3) 100%);
 
@@ -705,17 +717,22 @@ textarea {
     justify-content: center;
     padding: 0 8%;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 100vw;
     overflow: hidden;
 }
 
 .div-container-body .div-sub-container {
     z-index: 10;
     margin: 2rem 0;
-    align-items: center;
+    max-width: 100%;
+
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
+
+    /* just for debugging */
+    border: 1px solid aquamarine;
 }
 
 @media (min-width: 48rem) {
@@ -724,6 +741,22 @@ textarea {
         margin: 4rem 0;
     }
 }
+
+.div-container-body .div-flex-sub-container {
+    z-index: 10;
+    margin: 2rem 0;
+    max-width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    /* just for debugging */
+    border: 1px solid rgb(216, 107, 152);
+}
+
 
 
 
@@ -786,6 +819,10 @@ textarea {
     align-items: center;
     text-align: center;
     gap: 1.5rem;
+    /* flex-grow: 2; */
+
+    /* just for debugging */
+    border: 1px solid yellowgreen;
 }
 
 .div-container-body .div-sub-container .text-wrap h2 {
@@ -799,18 +836,6 @@ textarea {
     width: 86%;
 }
 
-/* .div-container-body .div-sub-container .text-wrap input[type="button"] {
-    align-self: flex-start;
-    position: relative;
-    left: 5rem;
-    width: 5rem;
-    width: 6rem;
-    height: 2rem;
-    color: var(--clr-menu-links);
-    background-color: var(--clr-neon-3);
-    border: 2px solid var(--clr-hr);
-    border-radius: 8px;
-} */
 
 /* button */
 .div-container-body .div-sub-container .text-wrap .button {
@@ -826,6 +851,7 @@ textarea {
     color: var(--clr-secondary-text);
     z-index: 8;
     background-color: var(--clr-neon-2);
+    margin-bottom: 2rem;
 }
 
 .div-container-body .div-sub-container .text-wrap .button:before {
@@ -875,6 +901,29 @@ textarea {
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
+
+
+
+
+/* Definition of coder */
+
+.div-flex-sub-container .svg-img-wrap {
+    max-width: 30rem;
+    display: flex;
+
+}
+
+.div-flex-sub-container .svg-img-wrap .svg-img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.div-flex-sub-container .text-flex-wrap {
+    padding-top: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2rem;
+}
 
 
 
@@ -942,16 +991,18 @@ textarea {
 footer {
     width: 100vw;
     height: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 0;
     padding: 0;
     position: relative;
+
 }
 
 .footer {
-    overflow: hidden;
+    /* overflow: hidden; */
     line-height: 0;
     height: auto;
+    margin-top: 15rem;
 }
 
 .footer hr {
@@ -963,21 +1014,11 @@ footer {
 }
 
 .footer .footer-img {
-    /*     width: 100vw;
+    width: 100vw;
     object-fit: cover;
 
     position: relative;
-    bottom: 12rem; */
-
-
-    /* FROM HERE */
-    width: 100vw;
-    height: 20rem;
-    /* Set the desired height to hide the top part */
-    background-image: url("{% static 'img/footer-waves.svg' %}");
-    background-size: cover;
-    background-position: bottom center;
-    /* Set the position of the visible part (bottom center in this case) */
+    bottom: 12rem;
 }
 
 .footer .footer-content {

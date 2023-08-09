@@ -3,99 +3,107 @@
 {% load static %}
 
 {% block header %}
-    <!-- general <header> wrapper -->
-        <header id="header" class="header">
+<!-- general <header> wrapper -->
+<header id="header" class="header">
 
-            <!-- theme switch -->
-            <div class="theme-switcher-wrapper">
-                <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
-                <label for="themeSwitch" class="theme-switch__label">
-                    <span class="circle"></span>
-                </label>
-            </div>
-    
-            <div class="header-box">
-                <!-- like jumbotron :) -->
-                <div class="main-elements">
-                    <div class="neon-line green"></div>
-                    <div class="jumbotron">
-                        <p>my name is</p>
-                        <!-- Animation "Writing Text" -->
-                        <div class="anime-wrapper">
-                            <h1 class="animated-title anime-no-delay">Alexander Ivanov</h1>
-                            <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </header>
-{% endblock header %}
+    <!-- theme switch -->
+    <div class="theme-switcher-wrapper">
+        <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+        <label for="themeSwitch" class="theme-switch__label">
+            <span class="circle"></span>
+        </label>
+    </div>
 
-
-{% block main_body %}
-
-    <div class="div-container-body">
-
-        <div class="div-sub-container" id="div-about">
-
-            <div class="about-image-wrap">
-                <img class="about-image" src="{% static 'img/alexander_foto.png' %}"
-                    alt="Alexander's foto in white shirt with a cool haircut">
-                <img class="decor-after" src="{% static 'img/about-sub-element-after.svg' %}"
-                    alt="just a blue stain to decorate the main photo">
-            </div>
-
-            <div class="text-wrap">
-                <h2>About</h2>
-                <p>My journey began as a passionate cook, where I honed my skills in the culinary arts and built an
-                    excellent career. However, my love for programming ignited a fire within me, leading me to embark on
-                    an
-                    exciting new path.</p>
-                <p>I'm a skilled cook turned self-taught programmer with a passion for full-stack web development. While
-                    still working as a chef, I've dedicated my free time to studying programming through Udemy courses,
-                    bootcamps and, the most important, practice. In just six months, I've gained a solid foundation and
-                    now
-                    specialize in building websites.</p>
-                <p>With a unique blend of culinary expertise and programming skills, I bring a fresh perspective to
-                    every
-                    project. I love solving problems and creating seamless user experiences. Let's collaborate and build
-                    something incredible together!</p>
-                <hr>
-                <!-- <input type="button" class="button" value="Hire Me"> -->
-                <button class="button">Hire me</button>
-            </div>
-
-        </div>
-
-        <div class="div-sub-container" id="div-how">
-            <h3>How di I get here from kitchen to web developer?</h3>
-        </div>
-
-        <div class="div-sub-container">
-
-            <div style="display: flex; 
-                        align-items: center;
-                        justify-content: center;">
-                <h1>Card Prototype ^.^</h1>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="card">
-                    <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
-                        alt="Alexander's foto in white shirt with a cool haircut">
-                </div>
-                <div class="card">
-                    <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
-                        alt="Alexander's foto in white shirt with a cool haircut">
-                </div>
-                <div class="card">
-                    <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
-                        alt="Alexander's foto in white shirt with a cool haircut">
+    <div class="header-box">
+        <!-- like jumbotron :) -->
+        <div class="main-elements">
+            <div class="neon-line green"></div>
+            <div class="jumbotron">
+                <p>my name is</p>
+                <!-- Animation "Writing Text" -->
+                <div class="anime-wrapper">
+                    <h1 class="animated-title anime-no-delay">Alexander Ivanov</h1>
+                    <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
                 </div>
             </div>
         </div>
 
     </div>
+</header>
+{% endblock header %}
+
+
+{% block main_body %}
+
+<div class="div-container-body">
+
+    <div class="div-sub-container" id="div-about">
+
+        <div class="about-image-wrap">
+            <img class="about-image" src="{% static 'img/alexander_foto.png' %}"
+                alt="Alexander's foto in white shirt with a cool haircut">
+            <img class="decor-after" src="{% static 'img/about-sub-element-after.svg' %}"
+                alt="just a blue stain to decorate the main photo">
+        </div>
+
+        <div class="text-wrap">
+            <h2>About</h2>
+            <p>My journey began as a passionate cook, where I honed my skills in the culinary arts and built an
+                excellent career. However, my love for programming ignited a fire within me, leading me to embark on
+                an
+                exciting new path.</p>
+            <p>I'm a skilled cook turned self-taught programmer with a passion for full-stack web development. While
+                still working as a chef, I've dedicated my free time to studying programming through Udemy courses,
+                bootcamps and, the most important, practice. In just six months, I've gained a solid foundation and
+                now
+                specialize in building websites.</p>
+            <p>With a unique blend of culinary expertise and programming skills, I bring a fresh perspective to
+                every
+                project. I love solving problems and creating seamless user experiences. Let's collaborate and build
+                something incredible together!</p>
+            <hr>
+            <!-- <input type="button" class="button" value="Hire Me"> -->
+            <button class="button">Hire me</button>
+        </div>
+
+    </div>
+
+    <div class="div-flex-sub-container">
+        <div class="svg-img-wrap">
+            <img class="svg-img" src="{% static 'img/coding_man.svg' %}"
+                alt="A coding man icon in blue shirt with headphones.">
+        </div>
+        <div class="text-flex-wrap">
+            <h2>Coding</h2>
+            <p>ability to press the buttons in the correct order</p>
+        </div>
+        <h3></h3>
+    </div>
+
+    <div class="div-sub-container">
+
+        <div style="display: flex; 
+                        align-items: center;
+                        justify-content: center;">
+            <h1>Card Prototype ^.^</h1>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card">
+                <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
+                    alt="Alexander's foto in white shirt with a cool haircut">
+            </div>
+            <div class="card">
+                <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
+                    alt="Alexander's foto in white shirt with a cool haircut">
+            </div>
+            <div class="card">
+                <img class="card-image" src="{% static 'img/alexander_foto.png' %}"
+                    alt="Alexander's foto in white shirt with a cool haircut">
+            </div>
+        </div>
+    </div>
+
+</div>
 
 {% endblock main_body %}
