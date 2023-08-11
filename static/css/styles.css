@@ -1088,3 +1088,33 @@ footer {
     font-weight: bold;
     color: var(--clr-menu-links);
 }
+
+.footer .footer-content .social-links-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 8px;
+}
+
+.footer .footer-content .social-links-wrap .social-link {
+    width: 2.4rem;
+    display: block;
+    cursor: pointer;
+}
+
+.footer .footer-content .social-links-wrap .social-link:hover .social-img {
+    /* position: absolute; */
+    /* bottom: 2px; */
+    transform: translateY(-10px);
+    transition: all .3s ease;
+    filter: sepia(100%) hue-rotate(190deg) saturate(900%);
+}
+
+.footer .footer-content .social-links-wrap .social-link .social-img {
+    width: 100%;
+    object-fit: contain;
+    position: relative;
+    transition: all .3s ease;
+}
