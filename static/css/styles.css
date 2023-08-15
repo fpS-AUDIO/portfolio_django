@@ -21,6 +21,7 @@
 - body
     -- about
     -- definition of coder
+    -- horizontal media scroller
     -- cards
 - footer
 
@@ -39,9 +40,10 @@
 
     /* default sizes of this project */
 
-    --size-font-p: calc(1rem + 0.3vw);
+    --size-font-p: calc(1rem + 0.4vw);
     --size-font-h2: calc(1.875rem + 0.3vw);
     --size-font-h3: calc(1.5rem + 0.3vw);
+    --spacer: calc(0.5rem + 1vw);
 
 
     /* this is the default dark theme: */
@@ -96,6 +98,10 @@
     /* --clr-media-hover-menu-li-hover-blur: rgba(0, 173, 253, 1); */
     --clr-media-not-hover-menu-li-active: rgba(37, 71, 87, 0.7);
 
+    /* media-scroller */
+    --clr-media-element-bg: rgba(90, 15, 212, 0.2);
+    --clr-media-element-shadow: rgba(105, 35, 218, 0.63);
+
     /* footer */
     --clr-bg-footer: #12174f;
     --clr-footer-hr-middle: rgb(131, 131, 164);
@@ -121,7 +127,8 @@
     --clr-card-border: #5411d1;
     --clr-card-border-hover: #11c1d1;
     --clr-card-bg-clr: #e7e7e7;
-    --clr-hr: #5a0fd4;
+    /* --clr-hr: #5a0fd4; */
+    --clr-hr: #fc8c03;
 
     /* buttons */
     --clr-btn-primary-text: #e9ecef;
@@ -146,6 +153,10 @@
     --clr-navbar-bg-1: #181818;
     --clr-navbar-bg-2: #121924;
     --clr-navbar-bg-3: #0e141c;
+
+    /* media-scroller */
+    --clr-media-element-bg: rgba(90, 15, 212, 0.2);
+    --clr-media-element-shadow: rgba(99, 99, 99, 0.5);
 }
 
 
@@ -155,14 +166,15 @@
 /*/////////////////
 // general style //
 /////////////////*/
-
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 
     /* Removes blue background when clicking on a link or icon on phone */
     -webkit-tap-highlight-color: transparent;
-
 }
 
 html {
@@ -754,19 +766,20 @@ textarea {
     align-items: center;
 
     /* just for debugging */
-    border: 1px solid aquamarine;
+    /* border: 1px solid aquamarine; */
 }
 
 @media (min-width: 48rem) {
     .div-container-body .div-sub-container {
         display: unset;
-        margin: calc(15rem + 4vw) 0;
+        margin: calc(8rem + 4vw) 0;
     }
 }
 
 .div-container-body .div-flex-sub-container {
     z-index: 10;
     margin: 2rem 0;
+    padding-bottom: 2rem;
     max-width: 100%;
 
     display: flex;
@@ -774,14 +787,15 @@ textarea {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    position: relative;
 
     /* just for debugging */
-    border: 1px solid rgb(216, 107, 152);
+    /* border: 1px solid rgb(216, 107, 152); */
 }
 
 @media (min-width: 48rem) {
     .div-container-body .div-flex-sub-container {
-        margin: calc(15rem + 4vw) 0;
+        margin: calc(8rem + 4vw) 0;
     }
 }
 
@@ -814,6 +828,8 @@ textarea {
         position: relative;
         top: 0;
         left: 0;
+        right: 10rem;
+        bottom: 0;
     }
 }
 
@@ -822,8 +838,10 @@ textarea {
     width: 100%;
     object-fit: cover;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .div-container-body .div-sub-container .about-image-wrap .decor-after {
@@ -858,73 +876,86 @@ textarea {
 
 
 /* button */
-.div-container-body .div-sub-container .text-wrap .button {
-    align-self: flex-start;
-    position: relative;
-    left: 5rem;
-    width: 9rem;
-    height: 3rem;
-    border: 2px solid var(--clr-hr);
-    border-radius: 8px;
-    transition: all 0.2s ease-in;
-    overflow: hidden;
-    color: var(--clr-btn-secondary-text);
-    z-index: 8;
-    /* background-color: var(--clr-neon-2); */
-    background-color: var(--clr-btn-bg);
+@media (min-width: 48rem) {
+    .neon-button-wrapper {
+        align-self: flex-start;
+        position: relative;
+        left: 5rem;
+    }
+}
+
+.neon-button {
+    /* everything is relative to this font-size */
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    letter-spacing: 1px;
+
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-hr);
+    border: var(--clr-hr) 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+
+    text-shadow:
+        0 0 0.125em rgba(255, 255, 255, 0.3),
+        0 0 0.45em currentColor;
+
+    box-shadow:
+        inset 0 0 0.5em 0 var(--clr-hr),
+        0 0 0.5em 0 var(--clr-hr);
+    position: relative;
+    transition: background-color 0.4s linear;
 }
 
-.div-container-body .div-sub-container .text-wrap .button:before {
+/* blured reflection under button */
+.neon-button::before {
+    pointer-events: none;
     content: "";
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    top: 100%;
-    width: 140%;
-    height: 180%;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
+    background-color: var(--clr-hr);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform:
+        perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1.5em);
+    opacity: 0.5;
 }
 
-.div-container-body .div-sub-container .text-wrap .button:after {
+/* background color + more box-shadow on hover */
+.neon-button::after {
     content: "";
     position: absolute;
-    left: 55%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    top: 180%;
-    width: 160%;
-    height: 190%;
+    /* background-color: red; */
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-hr);
+    opacity: 0;
     background-color: var(--clr-hr);
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
+    transition: opacity .4s linear;
 }
 
-.div-container-body .div-sub-container .text-wrap .button:hover {
-    color: var(--clr-btn-primary-text);
-    border: 2px solid var(--clr-hr);
+.neon-button:hover,
+.neon-button:focus {
+    color: var(--clr-secondary-text);
+    text-shadow: none;
+    /* filter: blur(1px); */
 }
 
-.div-container-body .div-sub-container .text-wrap .button:hover:before {
-    top: -35%;
-    background-color: var(--clr-hr);
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+.neon-button:hover::after,
+.neon-button:focus::after,
+.neon-button:hover::before,
+.neon-button:focus::before {
+    opacity: 1;
+    transition: opacity 0.4s linear;
 }
-
-.div-container-body .div-sub-container .text-wrap .button:hover:after {
-    top: -45%;
-    background-color: var(--clr-hr);
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-}
-
-
 
 
 
@@ -933,7 +964,13 @@ textarea {
 .div-flex-sub-container .svg-img-wrap {
     max-width: 30rem;
     display: flex;
+}
 
+@media (min-width: 48rem) {
+    .div-flex-sub-container .svg-img-wrap {
+        position: relative;
+        right: 5rem;
+    }
 }
 
 .div-flex-sub-container .svg-img-wrap .svg-img {
@@ -948,10 +985,96 @@ textarea {
     gap: 1.5rem;
 }
 
+@media (max-width: 767px) {
+    .div-flex-sub-container .text-flex-wrap {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .div-flex-sub-container .text-flex-wrap h3 {
     color: var(--clr-third-text);
     font-weight: initial;
 }
+
+.div-flex-sub-container .text-flex-wrap p {
+    padding-top: 2rem;
+}
+
+
+
+
+
+/* horizontal media scroller */
+.title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#skills {
+    display: block;
+}
+
+.media-scroller {
+    width: 96%;
+    display: grid;
+    gap: var(--spacer);
+    /* every child inside .media-scroller becomes a column */
+    grid-auto-flow: column;
+    /* widht of each of cild column */
+    grid-auto-columns: 23%;
+
+    padding: var(--spacer);
+
+    /* add horizontal scroll */
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    background-color: transparent;
+}
+
+@media (max-width: 767px) {
+    .media-scroller {
+        grid-auto-columns: 40%;
+    }
+
+}
+
+.media-scroller .media-element {
+    display: grid;
+    min-height: 200px;
+    grid-template-rows: min-content;
+    gap: var(--spacer);
+    padding: var(--spacer);
+    margin-bottom: 1rem;
+    background-color: var(--clr-media-element-bg);
+    border-radius: 8px;
+    box-shadow: var(--clr-media-element-shadow) 0px 2px 8px 0px;
+    overflow: hidden;
+}
+
+.media-scroller .media-element>img {
+    min-height: 120px;
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    border-radius: 4px;
+    filter: drop-shadow(0px 0px 4rem var(--clr-neon-2));
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--spacer);
+}
+
+/* select all the direct children */
+.snaps-inline>* {
+    scroll-snap-align: start;
+}
+
 
 
 
@@ -1045,7 +1168,7 @@ footer {
     object-fit: cover;
 
     position: relative;
-    bottom: 12rem;
+    bottom: 16rem;
 }
 
 .footer .footer-content {
