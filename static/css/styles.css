@@ -20,8 +20,8 @@
 - @media    when hover is NOT supported (using :active)
 - body
     -- about
-    -- definition of coder
-    -- horizontal media scroller
+    -- definition of coder 
+    -- horizontal media scroller with "my tech stack"
     -- cards
 - footer
 
@@ -40,9 +40,9 @@
 
     /* default sizes of this project */
 
-    --size-font-p: calc(1rem + 0.4vw);
-    --size-font-h2: calc(1.875rem + 0.3vw);
-    --size-font-h3: calc(1.5rem + 0.3vw);
+    --size-font-p: calc(1rem + 0.5vw);
+    --size-font-h2: calc(2rem + 0.5vw);
+    --size-font-h3: calc(1.5rem + 0.5vw);
     --spacer: calc(0.5rem + 1vw);
 
 
@@ -196,6 +196,9 @@ p {
 h2 {
     font-size: var(--size-font-h2);
     font-weight: bold;
+    font-family: 'Handjet', cursive;
+    letter-spacing: 3px;
+
 }
 
 h3 {
@@ -269,6 +272,11 @@ textarea {
     border-radius: 0;
     background-color: inherit;
     margin: 0;
+}
+
+.header .header-box .jumbotron .anime-wrapper>* {
+    font-style: monospace;
+    letter-spacing: normal;
 }
 
 .header .header-box .jumbotron .anime-wrapper h1 {
@@ -1004,6 +1012,15 @@ textarea {
 }
 
 
+/* this class is just to hide weird user-selections in media scroller */
+.noselect {
+    user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+}
 
 
 
@@ -1040,7 +1057,12 @@ textarea {
     .media-scroller {
         grid-auto-columns: 40%;
     }
+}
 
+@media (max-width: 400px) {
+    .media-scroller {
+        grid-auto-columns: 48%;
+    }
 }
 
 .media-scroller .media-element {
