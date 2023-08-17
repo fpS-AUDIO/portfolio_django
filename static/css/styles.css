@@ -99,7 +99,7 @@
     --clr-media-not-hover-menu-li-active: rgba(37, 71, 87, 0.7);
 
     /* media-scroller */
-    --clr-media-element-bg: rgba(90, 15, 212, 0.2);
+    --clr-media-element-bg: rgba(90, 15, 212, 0.4);
     --clr-media-element-shadow: rgba(105, 35, 218, 0.63);
 
     /* footer */
@@ -950,21 +950,31 @@ textarea {
     transition: opacity .4s linear;
 }
 
-.neon-button:hover,
-.neon-button:focus {
-    color: var(--clr-secondary-text);
-    text-shadow: none;
-    /* filter: blur(1px); */
+@media (hover: hover) {
+    .neon-button:hover {
+        color: var(--clr-secondary-text);
+        text-shadow: none;
+    }
+
+    .neon-button:hover::after,
+    .neon-button:hover::before {
+        opacity: 1;
+        transition: opacity 0.4s linear;
+    }
 }
 
-.neon-button:hover::after,
-.neon-button:focus::after,
-.neon-button:hover::before,
-.neon-button:focus::before {
-    opacity: 1;
-    transition: opacity 0.4s linear;
-}
+@media not (hover: hover) {
+    .neon-button:focus {
+        color: var(--clr-secondary-text);
+        text-shadow: none;
+    }
 
+    .neon-button:focus::after,
+    .neon-button:focus::before {
+        opacity: 1;
+        transition: opacity 0.4s linear;
+    }
+}
 
 
 /* Definition of coder */
@@ -1074,7 +1084,7 @@ textarea {
     margin-bottom: 1rem;
     background-color: var(--clr-media-element-bg);
     border-radius: 8px;
-    box-shadow: var(--clr-media-element-shadow) 0px 2px 8px 0px;
+    box-shadow: var(--clr-media-element-shadow) -6px 6px 8px 0px;
     overflow: hidden;
 }
 
