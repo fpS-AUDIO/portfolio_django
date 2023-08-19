@@ -7,6 +7,7 @@
 
 - color themes
 - general style
+- scrollbar style
 - header
     -- theme switcher
     -- neon inside jumbotron    
@@ -44,9 +45,20 @@
     --size-font-h2: calc(2rem + 0.5vw);
     --size-font-h3: calc(1.5rem + 0.5vw);
     --spacer: calc(0.5rem + 1vw);
+    --scrollbar-height: 1rem;
+    --scrollbar-width: 1rem;
+    --primary-border-radius: 8px;
 
 
-    /* this is the default dark theme: */
+
+    /*////////////////////////////////////
+    /// this is the default dark theme ///
+    ////////////////////////////////////*/
+
+    /* scrollbar */
+    --clr-bg-scrollbar-track: var(--clr-hr);
+    --clr-bg-scrollbar-thumb: var(--clr-bg-footer);
+    --clr-bg-scrollbar-thumb-hover: var(--clr-body-bg-1);
 
     /* <body> background colors */
     --clr-body-bg-1: #181818;
@@ -187,6 +199,7 @@ body {
     background-color: var(--clr-body-bg-1);
     background-image: linear-gradient(180deg, var(--clr-body-bg-1) 30%, var(--clr-body-bg-2) 100%);
     color: var(--clr-primary-text);
+    overflow-x: hidden;
 }
 
 p {
@@ -227,6 +240,44 @@ textarea {
 }
 
 
+
+
+
+/*///////////////////////////////////
+/// CUSTOM STYLING OF A SCROLLBAR ///
+///////////////////////////////////*/
+
+::-webkit-scrollbar {
+    width: var(--scrollbar-height);
+    height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--clr-bg-scrollbar-track);
+    border-radius: var(--primary-border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--clr-bg-scrollbar-thumb);
+    border-radius: var(--primary-border-radius);
+    border: 2px solid var(--clr-bg-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--clr-bg-scrollbar-thumb-hover);
+}
+
+/* First the browser will style the scrollbar with code above */
+/* then, if browser @supports a property, the below code will overwrite the code above */
+/* scrollbar-color  is supported only by Firefox in 2023 */
+@supports (scrollbar-color: red blue) {
+    * {
+        /* scrollbar-color: foreground background */
+        scrollbar-color: var(--clr-bg-scrollbar-track) var(--clr-bg-scrollbar-thumb);
+        /* scrollbar-width can be only: auto (default), none or thin */
+        scrollbar-width: thin;
+    }
+}
 
 /*//////////
 // HEADER //
@@ -280,11 +331,11 @@ textarea {
 }
 
 .header .header-box .jumbotron .anime-wrapper h1 {
-    margin-top: 1rem;
     font-size: calc(1rem + 2.5vw);
 }
 
 .header .header-box .jumbotron .anime-wrapper h2 {
+    margin-top: 1rem;
     font-size: calc(0.45rem + 2.5vw);
 }
 
@@ -358,7 +409,7 @@ textarea {
     margin-right: 1.5rem;
     height: 30vh;
     width: 8px;
-    border-radius: 10px;
+    border-radius: var(--primary-border-radius);
     position: relative;
     z-index: 8;
     filter: blur(2px);
@@ -485,7 +536,7 @@ textarea {
 
 
     border-right: 0.2rem solid var(--clr-ul-menu-Rborder);
-    border-radius: 7px;
+    border-radius: var(--primary-border-radius);
     /* max-height: 0; */
     transition: all 0.4s ease;
 }
@@ -650,7 +701,7 @@ textarea {
 
     .navbar .menu-wrap .menu li {
         /* background-color: var(--clr-ul-menu-bg); */
-        border-radius: 10px;
+        border-radius: var(--primary-border-radius);
         height: 2.7rem;
         width: 5rem;
         display: flex;
@@ -1083,7 +1134,7 @@ textarea {
     padding: var(--spacer);
     margin-bottom: 1rem;
     background-color: var(--clr-media-element-bg);
-    border-radius: 8px;
+    border-radius: var(--primary-border-radius);
     box-shadow: var(--clr-media-element-shadow) -6px 6px 8px 0px;
     overflow: hidden;
 }
@@ -1093,7 +1144,7 @@ textarea {
     inline-size: 100%;
     aspect-ratio: 16/9;
     object-fit: contain;
-    border-radius: 4px;
+    border-radius: var(--primary-border-radius);
     filter: drop-shadow(0px 0px 4rem var(--clr-neon-2));
 }
 
@@ -1123,7 +1174,7 @@ textarea {
 
 .card {
     border: 3px solid var(--clr-card-border);
-    border-radius: 8px;
+    border-radius: var(--primary-border-radius);
     background-color: var(--clr-card-bg-clr);
     /* object-fit: cover; */
     overflow: hidden;

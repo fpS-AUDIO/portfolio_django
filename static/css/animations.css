@@ -32,7 +32,7 @@
     /* Set the initial border-right width to 0 to hide it */
     /* border-right: 0px solid var(--clr-flashing-border); */
     animation: flashing-border 900ms step-start 4s infinite backwards,
-        printed-text-26ch 4s steps(26) 4s both;
+        printed-text-15ch 4s steps(15) 4s both;
 }
 
 
@@ -64,14 +64,14 @@
     }
 }
 
-@keyframes printed-text-26ch {
+@keyframes printed-text-15ch {
     0% {
         width: 0%;
     }
 
     100% {
         /* inserire stesso numero di width del testo da animare in ch */
-        width: 26ch;
+        width: 15ch;
     }
 }
 
