@@ -325,23 +325,50 @@ textarea {
     margin: 0;
 }
 
-.header .header-box .jumbotron .anime-wrapper>* {
-    font-style: monospace;
+.header .header-box .jumbotron .anime-wrapper>*,
+.header .header-box .jumbotron .anime-wrapper .changing-text>*,
+.header .header-box .jumbotron .anime-wrapper .changing-text .changing-text-span>* {
+    font-family: monospace;
     letter-spacing: normal;
+    /* font-weight: normal; */
 }
 
-.header .header-box .jumbotron .anime-wrapper h1 {
+.changing-text {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    margin-top: 0.5rem;
+}
+
+.header .header-box .jumbotron .anime-wrapper h1,
+.changing-text-span {
     font-size: calc(1rem + 2.5vw);
+    font-weight: normal;
+    font-family: monospace;
+    font-style: normal;
+
 }
 
 .header .header-box .jumbotron .anime-wrapper h2 {
-    margin-top: 1rem;
     font-size: calc(0.45rem + 2.5vw);
 }
 
 .header .header-box .jumbotron p {
     color: var(--clr-jumbotron-p);
     font-size: calc(0.7rem + 1.3vw);
+}
+
+.jumbo-span {
+    position: relative;
+}
+
+.jumbo-span::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(17, 48, 68);
+    height: 100%;
+    width: 100%;
+    border-left: 4px solid var(--clr-flashing-border);
 }
 
 
@@ -641,12 +668,6 @@ textarea {
     }
 
 }
-
-
-/*/////////////////////////////////////////////////////////
-/// ALL @MEDIA OF HEADER AND NAV FOR RESPONSIVE SCREENS ///
-/////////////////////////////////////////////////////////*/
-
 
 
 
