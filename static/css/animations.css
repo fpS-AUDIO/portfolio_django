@@ -56,6 +56,9 @@
         moving-span-after 5000ms steps(12) 5s infinite both;
 }
 
+.moving-header {
+    animation: moving-header 10s linear infinite both;
+}
 
 /* animations */
 
@@ -104,5 +107,18 @@
 
     50% {
         left: 100%;
+    }
+}
+
+
+@keyframes moving-header {
+
+    0%,
+    100% {
+        transform: rotateY(55deg);
+    }
+
+    50% {
+        transform: rotateY(45deg) scale(1.1);
     }
 }
