@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/animations.css' %}">
 
+    <!-- local favicon img -->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/icons/favicon.ico' %}">
 
     <!-- CDN Google-Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,32 +118,6 @@
     <script src="{% static 'js/main_script.js' %}"></script>
     <script>
 
-        ////////////////////////
-        //// Theme Switcher ////
-        ////////////////////////
-
-        let themeSwitcher = document.getElementById("themeSwitch");
-        let logoImage = document.getElementById("logo-img");
-
-        themeSwitcher.onclick = function () {
-            document.body.classList.toggle("light-theme");
-            /*             if (document.body.classList.contains("light-theme")) {
-                            logoImage.src = "{% static 'img/logo-ivanov-black.png' %}";
-                        } else {
-                            logoImage.src = "{% static 'img/logo-ivanov-white.png' %}";
-                        } */
-        };
-
-
-        //////////////////////////////////////
-        //// Header Animations Bug Fixing ////
-        //////////////////////////////////////
-
-        // Add a delay before applying the animation on the delayed element
-        // ELEMENT: <h2 class="animated-title anime-delay">a Full-Stack Web Developer</h2>
-        setTimeout(function () {
-            document.querySelector('.anime-delay').style.borderRight = '4px solid var(--clr-flashing-border)';
-        }, 4000); // Adjust the delay time as needed
 
     </script>
 </body>
